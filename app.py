@@ -38,7 +38,7 @@ if page == "Today's Call List":
 
     for row in call_list:
         priority = row.get("priority", "")
-        label = f"{priority} &nbsp; {row['Client Name']}** - {row["Balance"]} - {row['Days_Pending']} days pending"
+        label = f"{priority} &nbsp; {row['Client Name']}** - {row['Balance']} - {row['Days_Pending']} days pending"
 
         with st.expander(label):
             col1, col2 = st.columns(2)
