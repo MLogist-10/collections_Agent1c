@@ -1,0 +1,6 @@
+.env
+agent-acc-1-creds.json
+venv/
+__pycache__/
+*.pyc
+.streamlit/secrets.toml
