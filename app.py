@@ -45,17 +45,17 @@ if page == "Today's Call List":
             with col1:
                 st.write(f"**LR No:** {row.get('LR-No', '-')}")
                 st.write(f"**Route:** {row.get('Source','-')} -> {row.get('Destination', '-')}")
-                st.write(f"**Vehicle:** {row.get("Vehicle No.", '-')}")
+                st.write(f"**Vehicle:** {row.get('Vehicle No.', '-')}")
             with col2:
-                st.write(f"**Invoice:** {row.get("Invoice Generated", '-')}")
-                st.write(f"**Recieved:** {row.get("Payment Recieved", '-')}")
-                st.write(f"**Balance:** {row.get("Balance", '-')}")
+                st.write(f"**Invoice:** {row.get('Invoice Generated', '-')}")
+                st.write(f"**Recieved:** {row.get('Payment Recieved', '-')}")
+                st.write(f"**Balance:** {row.get('Balance', '-')}")
             st.write(f"**Basis:** {row.get('decision_basis', '-')}")
             st.write(f"**Remarks:** {row.get('Remarks', '-')}")
 
     with st.expander(f"--> Skipped today - {len(skipped)} clients"):
         for row in skipped:
-            st.write(f"- **{row.get("Client Name", '-')}** - {row.get('skip-reason', '-')}")
+            st.write(f"- **{row.get('Client Name', '-')}** - {row.get('skip-reason', '-')}")
     if st.button("🔄 Refresh Call List"):
         st.cache_data.clear()
         st.rerun()
