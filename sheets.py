@@ -1,6 +1,7 @@
 import gspread
 from google.oauth2.service_account import Credentials
-
+import os
+import streamlit as st
 from datetime import datetime
 
 SCOPES = [
@@ -9,11 +10,18 @@ SCOPES = [
 ]
 
 def get_client():
-    creds = Credentials.from_service_account_file(
-        "agent-acc-1-creds.json",
-        scopes=SCOPES)
-
+    if os.path.exists("agent_acc-1-creds.json"):
+        creds = Credentials.from_service_account_file(
+            "agent-acc-1-creds.json",
+            scope=SCOPES
+        )
+    else:
+        creds = Credentials.from_service_account_info(
+            st.secrets["gcp_service_account"],
+            scopes = SCOPES
+        )
     return gspread.authorize(creds)
+
 def mark_resolved(client_name):
     """Mark all call logs for a paid client as Resolved"""
     client = get_client()
