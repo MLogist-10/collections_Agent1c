@@ -199,21 +199,3 @@ if __name__ == "__main__":
     except Exception as e:
         import traceback
         traceback.print_exc()
-# if __name__ == "__main__":
-#     data = get_sheet("Agent_COPY---To_Pay & To_billed - clients_ledger[1 Aug-]")
-    
-#     for row in data:
-#         print(f"  {row.get('Client Name')} → '{row.get('Days_Pending')}' | Balance: '{row.get('Balance')}'")
-#     call_list, skipped = generate_call_list("Agent_COPY---To_Pay & To_billed - clients_ledger[1 Aug-]")
-
-#     print(f"\n TODAY's CALL LIST - {len(call_list)} clients\n")
-#     for i, row in enumerate(call_list, 1):
-#         print(f"{i}. {row['Client Name']} | ₹{row['Balance']} | {row['Days Pending']} days | {row['priority']}")
-#         print(f"  Basis: {row['decision_basis']}")
-#         print(f"  Last remark: {row['remark_display']}")
-#         print()
-
-#     print(f"\n --> SKIPPED - {len(skipped)} clients\n")
-
-#     for row in skipped:
-#         print(f"- {row.get("Client Name", '-')} - {row.get('skip_reason', '-')}")
