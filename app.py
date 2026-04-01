@@ -4,6 +4,8 @@ import os
 from dotenv import load_dotenv
 from sheets import get_sheet, log_call, get_client_history
 from agent1C import generate_call_list
+st.set_page_config(page_title="Collection Agent", layout="wide")
+
 load_dotenv()
 SHEET_NAME = os.getenv("GOOGLE_SHEET_NAME") or st.secrets.get("GOOGLE_SHEET_NAME")
 @st.cache_data(ttl=10800)  # cache for 3 hour
@@ -12,7 +14,7 @@ def get_call_list():
 
 
 call_list, skipped = get_call_list()
-st.set_page_config(page_title="Collection Agent", layout="wide")
+
 
 
 page = st.sidebar.selectbox("Navigate", [
