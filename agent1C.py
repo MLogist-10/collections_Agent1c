@@ -81,7 +81,7 @@ def ask_gemini(client_name, balance, days, history):
     PRIORITY: HIGH or MEDIUM or LOW (only if YES)
     """
     response = client.models.generate_content(
-        model="gemini-2.5-flash-lite",
+        model="gemini-2.5-flash",
         contents=prompt)
     
     return response.text.strip()
